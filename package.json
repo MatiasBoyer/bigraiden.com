@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon ./back_src/main.js",
-    "build_n_run": "tsc -b && vite build && node ./back_src/main.js",
+    "serve": "tsc -b && vite build && node ./back_src/main.js",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

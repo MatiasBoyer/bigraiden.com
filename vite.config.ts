@@ -6,5 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     allowedHosts: [ 'bigraiden.com' ]
+  },
+  define: {
+    'import.meta.env.BRANCH': JSON.stringify(process.env.BRANCH)
   }
 })

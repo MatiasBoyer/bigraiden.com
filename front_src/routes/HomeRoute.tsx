@@ -53,17 +53,12 @@ class HomeRoute extends React.Component {
       <>
         <div className="d-flex justify-content-center align-items-center vh-100 bg-dark">
           <div
-            className="d-grid"
-            style={{
-              gridTemplateColumns: `repeat(${
-                this.state.pages.length >= 3 ? 3 : 1
-              }, 1fr)`,
-              gap: "10px",
-            }}
+            className="d-flex justify-content-center gap-2 flex-wrap"
           >
             {this.state.pages.map((x) => (
               <button
                 className="btn btn-primary btn btn-light d-flex flex-column justify-content-between align-items-center p-2"
+                style={{width: '100%', aspectRatio: 1/1}}
                 onClick={() => (window.location.href = x.url)}
                 key={`k-${x.label}`}
                 disabled={x.disabled || false}

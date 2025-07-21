@@ -3,10 +3,12 @@ import { createRoot } from "react-dom/client";
 import "./styles/index.css";
 import HomeRoute from "./routes/HomeRoute.tsx";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
+const dev = import.meta.env.BRANCH == 'dev';
+
+const App = (
+  <>
     <HomeRoute />
-    {import.meta.env.BRANCH == 'dev' && (
+    {dev && (
       <div
         style={{
           position: "fixed",
@@ -20,5 +22,9 @@ createRoot(document.getElementById("root")!).render(
         dev branch
       </div>
     )}
-  </StrictMode>
+  </>
+)
+
+createRoot(document.getElementById("root")!).render(
+  dev ? <StrictMode>{App}</StrictMode> : App
 );

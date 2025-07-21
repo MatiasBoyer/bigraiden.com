@@ -30,7 +30,7 @@ router.get("/get_routes", async (req, res) => {
   if (unix_time >= cache.next_fetch) {
     cache.data = await db.ExecQuery(
       conn,
-      "SELECT label, iconsvg, url FROM routes"
+      "SELECT label, iconsvg, url FROM routes WHERE enabled = 1"
     );
     cache.timestamp = unix_time;
     cache.next_fetch = unix_time + cache_time;

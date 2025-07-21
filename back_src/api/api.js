@@ -36,6 +36,7 @@ router.get("/get_routes", async (req, res) => {
     cache.next_fetch = unix_time + cache_time;
   }
 
+  await db.DropConnection(conn);
   res.status(200).send(cache);
 });
 

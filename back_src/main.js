@@ -17,11 +17,12 @@ import router from "./api/api.js";
     appType: "custom",
   });
 
+  // middlewares
   app.use(vite.middlewares);
-
   app.use("/api", router);
 
-  app.use(/.*/, async (req, res, next) => {
+  // homepage
+  app.get("/", async (req, res, next) => {
     try {
       const html = await vite.transformIndexHtml(req.url, rawHtml);
       res.status(200).set({ "Content-Type": "text/html" }).end(html);

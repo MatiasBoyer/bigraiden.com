@@ -5,14 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon ./back_src/main.js",
-    "build": "tsc -b && vite build",
     "build_n_run": "tsc -b && vite build && node ./back_src/main.js",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "bootstrap": "^5.3.7",
+    "dotenv": "^17.2.0",
     "express": "^5.1.0",
+    "mysql2": "^3.14.2",
     "nodemon": "^3.1.10",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

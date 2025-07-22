@@ -18,6 +18,13 @@ import router from "./api/api.js";
   });
 
   // middlewares
+  app.use((req, res, next) => {
+    const forbidden = [".env", ".git"];
+    if (forbidden.some((x) => req.url.includes(x))) {
+      return res.status(403).send("Forbidden");
+    }
+    next();
+  });
   app.use(vite.middlewares);
   app.use("/api", router);
 

@@ -17,7 +17,15 @@ import router from "./api/api.js";
     appType: "custom",
   });
 
-  // middlewares
+  // -------------------- middlewares
+  // 403 -> forbidden urls
+  app.use((req, res, next) => {
+    const forbidden = [".env", ".git"];
+    if (forbidden.some((x) => req.url.includes(x))) {
+      return res.status(403).send("Forbidden");
+    }
+    next();
+  });
   app.use(vite.middlewares);
   app.use("/api", router);
 
@@ -30,6 +38,11 @@ import router from "./api/api.js";
       vite.ssrFixStacktrace(e);
       next(e);
     }
+  });
+
+  // 404 -> not found
+  app.use((req, res, next) => {
+    return res.status(404).send("Not found");
   });
 
   const port = process.env.PORT || 4000;

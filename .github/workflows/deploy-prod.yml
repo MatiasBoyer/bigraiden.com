@@ -21,4 +21,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}  # Optional if not using 22
           script: |
-            bash /home/dockerhome/bigraiden.com/deploy.sh
+            bash ./bigraiden.com/deploy.sh && ./deploy.sh

@@ -25,7 +25,7 @@ export default function Page() {
   return (
     <>
       {CardProps.length > 0 ? (
-        <div className="flex flex-col gap-5">
+        <div className="flex-grow flex flex-col items-center w-full gap-5">
           {CardProps.map((cp) => (
             <Card cardprops={cp} key={cp.title} />
           ))}

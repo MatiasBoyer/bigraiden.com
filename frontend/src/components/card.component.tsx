@@ -4,8 +4,10 @@ import questionmark from "../assets/question-mark-svgrepo-com.svg";
 import github_icon from "../assets/github-mark-white.svg";
 
 export default function Card({ cardprops }: { cardprops: IGetUrl }) {
-  if (!cardprops.img) {
-    cardprops.img = "";
+  let icon_src = questionmark;
+
+  if (cardprops.img) {
+    icon_src = cardprops.img.toString("utf-8");
   }
 
   return (
@@ -20,14 +22,7 @@ export default function Card({ cardprops }: { cardprops: IGetUrl }) {
         rel="noopener noreferrer"
       />
       <div className="min-w-[20%] items-center justify-center flex">
-        {
-          <Image
-            src={cardprops.img.length > 0 ? cardprops.img : questionmark}
-            alt="icon"
-            width={100}
-            height={100}
-          />
-        }
+        {<Image src={icon_src} alt="icon" width={100} height={100} />}
       </div>
       <div className="grow flex flex-col">
         <span className="top-0 py-2 font-bold grow-1">{cardprops.title}</span>

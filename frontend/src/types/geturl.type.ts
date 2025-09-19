@@ -1,7 +1,7 @@
 type IGetUrl = {
   title: string;
   description: string;
-  img: string;
+  img: Buffer;
   href: string;
   github_href: string;
 };

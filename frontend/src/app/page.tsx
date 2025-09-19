@@ -13,6 +13,9 @@ export default function Page() {
     fetch(config.api_endpoint + "/geturl")
       .then((response) => response.json())
       .then((data) => {
+        data.data.forEach((d: { img: Buffer }) => {
+          if (d.img) d.img = Buffer.from(d.img)
+        });
         setCardProps(data.data);
       })
       .catch((err) => {

@@ -1,16 +1,16 @@
 "use client";
 import Card from "@/components/card.component";
 import { IGetUrl } from "@/types/geturl.type";
-import config from "@/utils/config.util";
 import { useEffect, useState } from "react";
 import spinner_icon from "../assets/spinner-svgrepo-com.svg";
 import Image from "next/image";
+import { GetAPI } from "@/utils/getapi.util";
 
 export default function Page() {
   const [CardProps, setCardProps] = useState<IGetUrl[]>([]);
 
   useEffect(() => {
-    fetch(config.api_endpoint + "/geturl")
+    fetch(GetAPI() + "/geturl")
       .then((response) => response.json())
       .then((data) => {
         data.data.forEach((d: { img: Buffer }) => {

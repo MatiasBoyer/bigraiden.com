@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import service from "../services/geturl.service";
 import { IResponse } from "interfaces/iresponse.type";
+import { IGetUrl } from "interfaces/geturl.type";
 
 async function get(
   req: Request,
@@ -8,7 +9,7 @@ async function get(
   next: NextFunction
 ): Promise<void> {
   try {
-    const result: IResponse<any> = {
+    const result: IResponse<IGetUrl[]> = {
       success: true,
       data: await service.get(req),
     };

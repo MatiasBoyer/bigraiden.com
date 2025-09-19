@@ -26,6 +26,8 @@ async function get(
           cache.data = data;
           cache.last_fetch = Date.now();
           cache.pending = undefined;
+
+          console.info(`Updated geturl cache on ${cache.last_fetch}`);
           return data;
         });
       }

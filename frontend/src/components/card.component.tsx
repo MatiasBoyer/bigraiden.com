@@ -1,9 +1,13 @@
 import { IGetUrl } from "@/types/geturl.type";
 import Image from "next/image";
-import spinner_icon from "../assets/spinner-svgrepo-com.svg";
+import questionmark from "../assets/question-mark-svgrepo-com.svg";
 import github_icon from "../assets/github-mark-white.svg";
 
 export default function Card({ cardprops }: { cardprops: IGetUrl }) {
+  if (!cardprops.img) {
+    cardprops.img = "";
+  }
+
   return (
     <div
       className="relative bg-stone-800 w-full lg:w-200 p-5 flex flex-row gap-3 ease-in-out transition-transform duration-300
@@ -18,7 +22,7 @@ export default function Card({ cardprops }: { cardprops: IGetUrl }) {
       <div className="grow-[0.10] items-center justify-center flex">
         {
           <Image
-            src={cardprops.img.length > 0 ? cardprops.img : spinner_icon}
+            src={cardprops.img.length > 0 ? cardprops.img : questionmark}
             alt="icon"
             width={100}
             height={100}

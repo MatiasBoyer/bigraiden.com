@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: bigraidencom-backend
     ports:
-      - "5010:3000"
+      - "5020:3000"
     restart: unless-stopped
     env_file:
       - ./backend/.env
@@ -16,7 +16,7 @@ services:
       dockerfile: Dockerfile
     container_name: bigraidencom-frontend
     ports:
-      - "5011:4000"
+      - "5021:4000"
     depends_on:
       - backend
     restart: unless-stopped

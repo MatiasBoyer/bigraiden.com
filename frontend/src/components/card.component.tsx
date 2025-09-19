@@ -19,7 +19,7 @@ export default function Card({ cardprops }: { cardprops: IGetUrl }) {
         target="_blank"
         rel="noopener noreferrer"
       />
-      <div className="grow-[0.10] items-center justify-center flex">
+      <div className="min-w-[20%] items-center justify-center flex">
         {
           <Image
             src={cardprops.img.length > 0 ? cardprops.img : questionmark}
@@ -29,7 +29,7 @@ export default function Card({ cardprops }: { cardprops: IGetUrl }) {
           />
         }
       </div>
-      <div className="grow-[0.90] flex flex-col">
+      <div className="grow flex flex-col">
         <span className="top-0 py-2 font-bold grow-1">{cardprops.title}</span>
         <span className="grow py-2">{cardprops.description}</span>
         <span className="grow-1 flex justify-end items-center py-2 px-10 gap-5">
